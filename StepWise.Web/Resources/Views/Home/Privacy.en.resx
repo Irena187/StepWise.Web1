@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+	<data name="Title" xml:space="preserve">
+    <value>Privacy Policy - StepWise</value>
+  </data>
+	<data name="PrivacyTitle" xml:space="preserve">
+    <value>Privacy Policy</value>
+  </data>
+	<data name="PrivacySubtitle" xml:space="preserve">
+    <value>Your privacy matters to us. Learn how we collect, use, and protect your information.</value>
+  </data>
+	<data name="InformationWeCollect" xml:space="preserve">
+    <value>Information We Collect</value>
+  </data>
+	<data name="InformationWeCollectDesc" xml:space="preserve">
+    <value>We collect personal information such as your name, email address, and usage data to improve your experience on StepWise. We only gather data you choose to provide.</value>
+  </data>
+	<data name="HowWeUseYourData" xml:space="preserve">
+    <value>How We Use Your Data</value>
+  </data>
+	<data name="HowWeUseYourDataDesc" xml:space="preserve">
+    <value>Your data is used to personalize your learning journey, provide progress tracking, and connect you with relevant career content. We do not sell your data.</value>
+  </data>
+	<data name="Security" xml:space="preserve">
+    <value>Security</value>
+  </data>
+	<data name="SecurityDesc" xml:space="preserve">
+    <value>We use modern encryption and security protocols to keep your data safe. Our platform is designed with user privacy as a core principle.</value>
+  </data>
+	<data name="YourControls" xml:space="preserve">
+    <value>Your Controls</value>
+  </data>
+	<data name="YourControlsDesc" xml:space="preserve">
+    <value>You can update or delete your personal information at any time through your account settings. We respect your choices and preferences.</value>
+  </data>
+</root>

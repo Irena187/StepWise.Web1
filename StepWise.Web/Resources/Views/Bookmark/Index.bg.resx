@@ -1,0 +1,99 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+	<data name="Title">
+		<value>Моите отметнати кариерни пътища - Стъпка По Стъпка</value>
+	</data>
+	<data name="MyBookmarkedCareerPaths">
+		<value>Моите отметнати кариерни пътища</value>
+	</data>
+	<data name="TrackAndManage">
+		<value>Проследявайте и управлявайте запазените си кариерни пътища</value>
+	</data>
+	<data name="BrowseCareerPaths">
+		<value>Разгледай кариерни пътища</value>
+	</data>
+	<data name="TotalBookmarked">
+		<value>Общо отметнати</value>
+	</data>
+	<data name="CurrentlyActive">
+		<value>Активни в момента</value>
+	</data>
+	<data name="CompletedSteps">
+		<value>Завършени стъпки</value>
+	</data>
+	<data name="TotalSteps">
+		<value>Общо стъпки</value>
+	</data>
+	<data name="SearchCareerPaths">
+		<value>Търсене на кариерни пътища...</value>
+	</data>
+	<data name="RecentlyBookmarked">
+		<value>Наскоро отметнати</value>
+	</data>
+	<data name="TitleAZ">
+		<value>Заглавие А-Я</value>
+	</data>
+	<data name="Creator">
+		<value>Създател</value>
+	</data>
+	<data name="GoalProfession">
+		<value>Целева професия</value>
+	</data>
+	<data name="AllBookmarks">
+		<value>Всички отметки</value>
+	</data>
+	<data name="Active">
+		<value>Активни</value>
+	</data>
+	<data name="Completed">
+		<value>Завършени</value>
+	</data>
+	<data name="Clear">
+		<value>Изчисти</value>
+	</data>
+	<data name="ViewDetails">
+		<value>Виж детайли</value>
+	</data>
+	<data name="RemoveBookmark">
+		<value>Премахни отметка</value>
+	</data>
+	<data name="Goal">
+		<value>Цел:</value>
+	</data>
+	<data name="CreatedBy">
+		<value>Създадено от</value>
+	</data>
+	<data name="BookmarkedOn">
+		<value>Отметнато на</value>
+	</data>
+	<data name="Progress">
+		<value>Напредък</value>
+	</data>
+	<data name="Steps">
+		<value>стъпки</value>
+	</data>
+	<data name="Complete">
+		<value>завършено</value>
+	</data>
+	<data name="NoCareerPathsFound">
+		<value>Не са намерени кариерни пътища</value>
+	</data>
+	<data name="NoCareerPathsMatch">
+		<value>Няма кариерни пътища, които отговарят на текущите филтри.</value>
+	</data>
+	<data name="NoBookmarkedCareerPaths">
+		<value>Нямате отметнати кариерни пътища</value>
+	</data>
+	<data name="NoBookmarksMessage">
+		<value>Все още не сте отметнали кариерни пътища. Разгледайте и запазете тези, които ви интересуват!</value>
+	</data>
+	<data name="BookmarkRemoved">
+		<value>Отметката е премахната успешно.</value>
+	</data>
+	<data name="ConfirmRemove">
+		<value>Сигурни ли сте, че искате да премахнете тази отметка?</value>
+	</data>
+	<data name="ErrorRemoving">
+		<value>Грешка при премахване на отметката. Моля, опитайте отново.</value>
+	</data>
+</root>

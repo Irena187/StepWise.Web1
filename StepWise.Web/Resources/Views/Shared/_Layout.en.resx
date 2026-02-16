@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+	<data name="AppName" xml:space="preserve">
+    <value>StepWise</value>
+	</data>
+	<data name="Home" xml:space="preserve">
+    <value>Home</value>
+  </data>
+	<data name="CareerPaths" xml:space="preserve">
+    <value>Career Paths</value>
+  </data>
+	<data name="MyBookmarks" xml:space="preserve">
+    <value>My Bookmarks</value>
+  </data>
+	<data name="MyCareerPaths" xml:space="preserve">
+    <value>My Career Paths</value>
+  </data>
+	<data name="Privacy" xml:space="preserve">
+    <value>Privacy</value>
+  </data>
+	<data name="ToggleNavigation" xml:space="preserve">
+    <value>Toggle navigation</value>
+  </data>
+</root>

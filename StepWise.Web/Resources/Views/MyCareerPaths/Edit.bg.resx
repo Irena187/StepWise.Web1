@@ -1,0 +1,120 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+	<xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+		<xsd:element name="root" msdata:IsDataSet="true">
+			<xsd:complexType>
+				<xsd:choice maxOccurs="unbounded">
+					<xsd:element name="data">
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+								<xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+							</xsd:sequence>
+							<xsd:attribute name="name" type="xsd:string" msdata:Ordinal="1" />
+							<xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+							<xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="resheader">
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+							</xsd:sequence>
+							<xsd:attribute name="name" type="xsd:string" use="required" />
+						</xsd:complexType>
+					</xsd:element>
+				</xsd:choice>
+			</xsd:complexType>
+		</xsd:element>
+	</xsd:schema>
+	<resheader name="resmimetype">
+		<value>text/microsoft-resx</value>
+	</resheader>
+	<resheader name="version">
+		<value>1.3</value>
+	</resheader>
+	<resheader name="reader">
+		<value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.3500.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+	</resheader>
+	<resheader name="writer">
+		<value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.3500.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+	</resheader>
+	<data name="EditCareerPath" xml:space="preserve">
+		<value>Редактиране на кариерен път</value>
+	</data>
+	<data name="EditingAs" xml:space="preserve">
+		<value>Редактиране като</value>
+	</data>
+	<data name="CareerPathInformation" xml:space="preserve">
+		<value>Информация за кариерния път</value>
+	</data>
+	<data name="Title" xml:space="preserve">
+		<value>Заглавие</value>
+	</data>
+	<data name="GoalProfession" xml:space="preserve">
+		<value>Целева професия</value>
+	</data>
+	<data name="Description" xml:space="preserve">
+		<value>Описание</value>
+	</data>
+	<data name="MakePublic" xml:space="preserve">
+		<value>Направи публичен</value>
+	</data>
+	<data name="CareerSteps" xml:space="preserve">
+		<value>Кариерни стъпки</value>
+	</data>
+	<data name="AddStep" xml:space="preserve">
+		<value>Добави стъпка</value>
+	</data>
+	<data name="Step" xml:space="preserve">
+		<value>Стъпка</value>
+	</data>
+	<data name="StepTitle" xml:space="preserve">
+		<value>Заглавие на стъпката</value>
+	</data>
+	<data name="StepType" xml:space="preserve">
+		<value>Тип стъпка</value>
+	</data>
+	<data name="Course" xml:space="preserve">
+		<value>Курс</value>
+	</data>
+	<data name="Book" xml:space="preserve">
+		<value>Книга</value>
+	</data>
+	<data name="Internship" xml:space="preserve">
+		<value>Стаж</value>
+	</data>
+	<data name="Job" xml:space="preserve">
+		<value>Работа</value>
+	</data>
+	<data name="Certification" xml:space="preserve">
+		<value>Сертификат</value>
+	</data>
+	<data name="Degree" xml:space="preserve">
+		<value>Степен</value>
+	</data>
+	<data name="Documentation" xml:space="preserve">
+		<value>Документация</value>
+	</data>
+	<data name="Other" xml:space="preserve">
+		<value>Друго</value>
+	</data>
+	<data name="ResourceURL" xml:space="preserve">
+		<value>URL на ресурса</value>
+	</data>
+	<data name="Deadline" xml:space="preserve">
+		<value>Краен срок</value>
+	</data>
+	<data name="MarkAsCompletedShort" xml:space="preserve">
+		<value>Маркирай като завършена</value>
+	</data>
+	<data name="NoStepsAddedYet" xml:space="preserve">
+		<value>Все още няма добавени стъпки. Натиснете "Добави стъпка" за да започнете!</value>
+	</data>
+	<data name="Cancel" xml:space="preserve">
+		<value>Откажи</value>
+	</data>
+	<data name="UpdateCareerPath" xml:space="preserve">
+		<value>Актуализирай кариерен път</value>
+	</data>
+</root>

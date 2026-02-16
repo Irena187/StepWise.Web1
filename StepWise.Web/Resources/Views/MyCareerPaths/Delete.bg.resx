@@ -1,0 +1,111 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+	<xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+		<xsd:element name="root" msdata:IsDataSet="true">
+			<xsd:complexType>
+				<xsd:choice maxOccurs="unbounded">
+					<xsd:element name="data">
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+								<xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+							</xsd:sequence>
+							<xsd:attribute name="name" type="xsd:string" msdata:Ordinal="1" />
+							<xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+							<xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="resheader">
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+							</xsd:sequence>
+							<xsd:attribute name="name" type="xsd:string" use="required" />
+						</xsd:complexType>
+					</xsd:element>
+				</xsd:choice>
+			</xsd:complexType>
+		</xsd:element>
+	</xsd:schema>
+	<resheader name="resmimetype">
+		<value>text/microsoft-resx</value>
+	</resheader>
+	<resheader name="version">
+		<value>1.3</value>
+	</resheader>
+	<resheader name="reader">
+		<value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.3500.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+	</resheader>
+	<resheader name="writer">
+		<value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.3500.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+	</resheader>
+	<data name="DeleteCareerPath" xml:space="preserve">
+		<value>Изтриване на кариерен път</value>
+	</data>
+	<data name="ConfirmDeletion" xml:space="preserve">
+		<value>Потвърждение на изтриването</value>
+	</data>
+	<data name="WarningTitle" xml:space="preserve">
+		<value>Внимание: Това действие не може да бъде отменено!</value>
+	</data>
+	<data name="WarningMessage" xml:space="preserve">
+		<value>На път сте да изтриете завинаги този кариерен път и всички свързани стъпки.</value>
+	</data>
+	<data name="CareerPathToDelete" xml:space="preserve">
+		<value>Кариерен път за изтриване:</value>
+	</data>
+	<data name="GoalProfession" xml:space="preserve">
+		<value>Целева професия</value>
+	</data>
+	<data name="Description" xml:space="preserve">
+		<value>Описание</value>
+	</data>
+	<data name="Visibility" xml:space="preserve">
+		<value>Видимост</value>
+	</data>
+	<data name="Public" xml:space="preserve">
+		<value>Публичен</value>
+	</data>
+	<data name="Private" xml:space="preserve">
+		<value>Частен</value>
+	</data>
+	<data name="Steps" xml:space="preserve">
+		<value>Стъпки</value>
+	</data>
+	<data name="StepsCount" xml:space="preserve">
+		<value>стъпка/и</value>
+	</data>
+	<data name="CreatedBy" xml:space="preserve">
+		<value>Създаден от</value>
+	</data>
+	<data name="StepsThatWillBeDeleted" xml:space="preserve">
+		<value>Стъпки, които ще бъдат изтрити:</value>
+	</data>
+	<data name="Completed" xml:space="preserve">
+		<value>Завършена</value>
+	</data>
+	<data name="Pending" xml:space="preserve">
+		<value>В изчакване</value>
+	</data>
+	<data name="AndMoreSteps" xml:space="preserve">
+		<value>и още {0} стъпка/и</value>
+	</data>
+	<data name="Cancel" xml:space="preserve">
+		<value>Откажи</value>
+	</data>
+	<data name="BackToList" xml:space="preserve">
+		<value>Обратно към списъка</value>
+	</data>
+	<data name="DeletePermanently" xml:space="preserve">
+		<value>Да, изтрий завинаги</value>
+	</data>
+	<data name="FirstConfirmation" xml:space="preserve">
+		<value>Абсолютно ли сте сигурни, че искате да изтриете този кариерен път? Това действие не може да бъде отменено.</value>
+	</data>
+	<data name="FinalWarningPrefix" xml:space="preserve">
+		<value>ПОСЛЕДНО ПРЕДУПРЕЖДЕНИЕ: Това ще изтрие завинаги кариерния път "</value>
+	</data>
+	<data name="FinalWarningSuffix" xml:space="preserve">
+		<value>" и всички негови стъпки. Това действие не може да бъде отменено.\n\nАбсолютно ли сте сигурни?</value>
+	</data>
+</root>

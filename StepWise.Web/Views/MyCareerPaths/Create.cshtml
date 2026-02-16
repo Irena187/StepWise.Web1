@@ -1,0 +1,255 @@
+﻿@model StepWise.Web.ViewModels.CareerPath.AddCareerPathInputModel
+@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer Localizer
+
+@{
+    ViewData["Title"] = Localizer["CreateCareerPath"];
+}
+
+<div class="container">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <div>
+            <h2>@Localizer["CreateCareerPath"]</h2>
+            @if (User.Identity != null && User.Identity.IsAuthenticated)
+            {
+                <p class="text-muted mb-0">@Localizer["WelcomeBack"], <strong>@User.Identity.Name</strong>!</p>
+            }
+        </div>
+    </div>
+
+    <form asp-controller="MyCareerPaths" asp-action="Create" method="post">
+        <!-- Career Path Information -->
+        <div class="card mb-4">
+            <div class="card-header">
+                <h5 class="card-title mb-0">@Localizer["CareerPathInformation"]</h5>
+            </div>
+            <div class="card-body">
+                <div class="mb-3">
+                    <label asp-for="Title" class="form-label">@Localizer["Title"]</label>
+                    <input asp-for="Title" class="form-control" />
+                    <span asp-validation-for="Title" class="text-danger"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="GoalProfession" class="form-label">@Localizer["GoalProfession"]</label>
+                    <input asp-for="GoalProfession" class="form-control" />
+                    <span asp-validation-for="GoalProfession" class="text-danger"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="Description" class="form-label">@Localizer["Description"]</label>
+                    <textarea asp-for="Description" class="form-control" rows="3"></textarea>
+                    <span asp-validation-for="Description" class="text-danger"></span>
+                </div>
+
+                <div class="mb-3">
+                    <div class="form-check">
+                        <input asp-for="IsPublic" class="form-check-input" type="checkbox" />
+                        <label asp-for="IsPublic" class="form-check-label">@Localizer["MakePublic"]</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Career Steps -->
+        <div class="card mb-4">
+            <div class="card-header d-flex justify-content-between align-items-center">
+                <h5 class="card-title mb-0">@Localizer["CareerSteps"]</h5>
+                <button type="button" class="btn btn-sm btn-outline-primary" onclick="addStep()">
+                    <i class="fas fa-plus me-1"></i>@Localizer["AddStep"]
+                </button>
+            </div>
+            <div class="card-body">
+                <div id="steps-container">
+                    @if (Model?.Steps != null && Model.Steps.Any())
+                    {
+                        @for (int i = 0; i < Model.Steps.Count; i++)
+                        {
+                            <partial name="_CareerStepForm" model="Model.Steps[i]" view-data="@(new ViewDataDictionary(ViewData) { { "Index", i } })" />
+                        }
+                    }
+                    else
+                    {
+                        <div class="text-center text-muted py-4" id="no-steps-message">
+                            <i class="fas fa-list-ol fa-2x mb-2"></i>
+                            <p>@Localizer["NoStepsAddedYet"]</p>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="d-flex justify-content-between">
+            <a asp-controller="MyCareerPaths" asp-action="MyCareerPaths" class="btn btn-secondary">@Localizer["Cancel"]</a>
+            <button type="submit" class="btn btn-primary">
+                <i class="fas fa-save me-1"></i>@Localizer["CreateCareerPathButton"]
+            </button>
+        </div>
+    </form>
+</div>
+
+@section Scripts {
+    <script>
+        let stepIndex = @(Model?.Steps?.Count ?? 0);
+
+        // Localized strings for JavaScript
+        const localizedStrings = {
+            step: '@Localizer["Step"]',
+            stepTitle: '@Localizer["StepTitle"]',
+            stepType: '@Localizer["StepType"]',
+            course: '@Localizer["Course"]',
+            book: '@Localizer["Book"]',
+            internship: '@Localizer["Internship"]',
+            job: '@Localizer["Job"]',
+            certification: '@Localizer["Certification"]',
+            degree: '@Localizer["Degree"]',
+            documentation: '@Localizer["Documentation"]',
+            other: '@Localizer["Other"]',
+            description: '@Localizer["Description"]',
+            resourceURL: '@Localizer["ResourceURL"]',
+            deadline: '@Localizer["Deadline"]',
+            markAsCompleted: '@Localizer["MarkAsCompleted"]'
+        };
+
+        function addStep() {
+            // Hide the "no steps" message
+            const noStepsMessage = document.getElementById('no-steps-message');
+            if (noStepsMessage) {
+                noStepsMessage.style.display = 'none';
+            }
+
+            const container = document.getElementById('steps-container');
+            const stepHtml = `
+                <div class="step-form border rounded p-3 mb-3" data-step-index="${stepIndex}">
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <h6 class="mb-0">${localizedStrings.step} ${stepIndex + 1}</h6>
+                        <button type="button" class="btn btn-sm btn-outline-danger" onclick="removeStep(this)">
+                            <i class="fas fa-trash"></i>
+                        </button>
+                    </div>
+
+                    <input type="hidden" name="Steps[${stepIndex}].Order" value="${stepIndex + 1}" />
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label class="form-label">${localizedStrings.stepTitle}</label>
+                                <input name="Steps[${stepIndex}].Title" class="form-control" required />
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label class="form-label">${localizedStrings.stepType}</label>
+                                <select name="Steps[${stepIndex}].Type" class="form-select">
+                                    <option value="Course">${localizedStrings.course}</option>
+                                    <option value="Book">${localizedStrings.book}</option>
+                                    <option value="Internship">${localizedStrings.internship}</option>
+                                    <option value="Job">${localizedStrings.job}</option>
+                                    <option value="Certification">${localizedStrings.certification}</option>
+                                    <option value="Degree">${localizedStrings.degree}</option>
+                                    <option value="Documentation">${localizedStrings.documentation}</option>
+                                    <option value="Other" selected>${localizedStrings.other}</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">${localizedStrings.description}</label>
+                        <textarea name="Steps[${stepIndex}].Description" class="form-control" rows="2"></textarea>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-8">
+                            <div class="mb-3">
+                                <label class="form-label">${localizedStrings.resourceURL}</label>
+                                <input name="Steps[${stepIndex}].Url" class="form-control" type="url" placeholder="https://..." />
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="mb-3">
+                                <label class="form-label">${localizedStrings.deadline}</label>
+                                <input name="Steps[${stepIndex}].Deadline" class="form-control" type="date" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mb-0">
+                        <div class="form-check">
+                            <input name="Steps[${stepIndex}].IsCompleted" class="form-check-input" type="checkbox" />
+                            <label class="form-check-label">
+                                ${localizedStrings.markAsCompleted}
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            `;
+
+            container.insertAdjacentHTML('beforeend', stepHtml);
+            stepIndex++;
+            updateStepNumbers();
+        }
+
+        function removeStep(button) {
+            const stepForm = button.closest('.step-form');
+            stepForm.remove();
+            updateStepNumbers();
+
+            // Show "no steps" message if no steps remain
+            const remainingSteps = document.querySelectorAll('.step-form');
+            if (remainingSteps.length === 0) {
+                const noStepsMessage = document.getElementById('no-steps-message');
+                if (noStepsMessage) {
+                    noStepsMessage.style.display = 'block';
+                }
+            }
+        }
+
+        function updateStepNumbers() {
+            const stepForms = document.querySelectorAll('.step-form');
+            stepForms.forEach((form, index) => {
+                const stepNumber = form.querySelector('h6');
+                if (stepNumber) {
+                    stepNumber.textContent = `${localizedStrings.step} ${index + 1}`;
+                }
+
+                // Update the Order hidden input for dynamically added steps
+                const orderInput = form.querySelector('input[name$=".Order"]');
+                if (orderInput) {
+                    orderInput.value = index + 1;
+                }
+
+                // Update form field names to maintain proper indexing
+                updateFieldNames(form, index);
+            });
+        }
+
+        function updateFieldNames(form, newIndex) {
+            // Update all input names to use the correct index
+            const inputs = form.querySelectorAll('input, select, textarea');
+            inputs.forEach(input => {
+                if (input.name && input.name.includes('Steps[')) {
+                    const fieldName = input.name.replace(/Steps\[\d+\]/, `Steps[${newIndex}]`);
+                    input.name = fieldName;
+                }
+            });
+        }
+
+        // Don't add a step automatically - let the user decide
+        document.addEventListener('DOMContentLoaded', function() {
+            // Just ensure step numbering is correct for any existing steps
+            updateStepNumbers();
+        });
+    </script>
+}
+
+<style>
+    .step-form {
+        background-color: #f8f9fa;
+        transition: all 0.3s ease;
+    }
+
+        .step-form:hover {
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+</style>

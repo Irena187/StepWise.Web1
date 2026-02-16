@@ -1,0 +1,192 @@
+﻿@model StepWise.Data.Models.CareerPath
+@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer Localizer
+
+@{
+    ViewData["Title"] = Localizer["DeleteCareerPath"];
+}
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card border-danger">
+                <div class="card-header bg-danger text-white">
+                    <h3 class="card-title mb-0">
+                        <i class="fas fa-exclamation-triangle me-2"></i>
+                        @Localizer["ConfirmDeletion"]
+                    </h3>
+                </div>
+                <div class="card-body">
+                    <div class="alert alert-warning" role="alert">
+                        <h5 class="alert-heading">
+                            <i class="fas fa-warning me-1"></i>
+                            @Localizer["WarningTitle"]
+                        </h5>
+                        <p class="mb-0">@Localizer["WarningMessage"]</p>
+                    </div>
+
+                    <!-- Career Path Details -->
+                    <div class="mb-4">
+                        <h4 class="text-danger">@Localizer["CareerPathToDelete"]</h4>
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">@Model.Title</h5>
+                                <p class="card-text">
+                                    <strong>@Localizer["GoalProfession"]:</strong> @Model.GoalProfession
+                                </p>
+
+                                @if (!string.IsNullOrEmpty(Model.Description))
+                                {
+                                    <p class="card-text">
+                                        <strong>@Localizer["Description"]:</strong> @Model.Description
+                                    </p>
+                                }
+
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <p class="card-text">
+                                            <strong>@Localizer["Visibility"]:</strong>
+                                            @if (Model.IsPublic)
+                                            {
+                                                <span class="badge bg-success">
+                                                    <i class="fas fa-globe"></i> @Localizer["Public"]
+                                                </span>
+                                            }
+                                            else
+                                            {
+                                                <span class="badge bg-secondary">
+                                                    <i class="fas fa-lock"></i> @Localizer["Private"]
+                                                </span>
+                                            }
+                                        </p>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p class="card-text">
+                                            <strong>@Localizer["Steps"]:</strong>
+                                            <span class="badge bg-info">
+                                                @(Model.Steps?.Count ?? 0) @Localizer["StepsCount"]
+                                            </span>
+                                        </p>
+                                    </div>
+                                </div>
+
+                                @if (Model.Creator != null)
+                                {
+                                    <p class="card-text">
+                                        <small class="text-muted">
+                                            <i class="fas fa-user me-1"></i>
+                                            @Localizer["CreatedBy"]: @Model.Creator.User.UserName
+                                        </small>
+                                    </p>
+                                }
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Steps Preview -->
+                    @if (Model.Steps != null && Model.Steps.Any())
+                    {
+                        <div class="mb-4">
+                            <h5 class="text-danger">@Localizer["StepsThatWillBeDeleted"]</h5>
+                            <div class="list-group">
+                                @foreach (var step in Model.Steps.Take(5)) // Show first 5 steps
+                                {
+                                    <div class="list-group-item">
+                                        <div class="d-flex w-100 justify-content-between align-items-center">
+                                            <h6 class="mb-1">@step.Title</h6>
+                                            <span class="badge bg-@(step.IsCompleted ? "success" : "secondary")">
+                                                @(step.IsCompleted ? Localizer["Completed"] : Localizer["Pending"])
+                                            </span>
+                                        </div>
+                                        @if (!string.IsNullOrEmpty(step.Description))
+                                        {
+                                            <p class="mb-1 text-muted small">@step.Description</p>
+                                        }
+                                        <small class="text-muted">
+                                            <i class="fas fa-tag me-1"></i>@step.Type
+                                            @if (step.Deadline.HasValue)
+                                            {
+                                                <span class="ms-2">
+                                                    <i class="fas fa-calendar me-1"></i>@step.Deadline.Value.ToString("MMM dd, yyyy")
+                                                </span>
+                                            }
+                                        </small>
+                                    </div>
+                                }
+                                @if (Model.Steps.Count > 5)
+                                {
+                                    <div class="list-group-item text-center text-muted">
+                                        <i class="fas fa-ellipsis-h"></i>
+                                        @Localizer["AndMoreSteps", Model.Steps.Count - 5]
+                                    </div>
+                                }
+                            </div>
+                        </div>
+                    }
+
+                    <!-- Action Buttons -->
+                    <div class="d-flex justify-content-between">
+                        <a asp-controller="MyCareerPaths" asp-action="Details" asp-route-id="@Model.Id" class="btn btn-secondary">
+                            <i class="fas fa-arrow-left me-1"></i>
+                            @Localizer["Cancel"]
+                        </a>
+
+                        <div>
+                            <a asp-controller="MyCareerPaths" asp-action="MyCareerPaths" class="btn btn-outline-secondary me-2">
+                                <i class="fas fa-list me-1"></i>
+                                @Localizer["BackToList"]
+                            </a>
+
+                            <form asp-controller="MyCareerPaths" asp-action="Delete" method="post" class="d-inline">
+                                <input type="hidden" asp-for="Id" />
+                                <button type="submit" class="btn btn-danger"
+                                        onclick="return confirm('@Localizer["FirstConfirmation"]')">
+                                    <i class="fas fa-trash me-1"></i>
+                                    @Localizer["DeletePermanently"]
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        // Additional confirmation with timeout
+        const finalWarning = '@Html.Raw(Localizer["FinalWarning"].Value.Replace("'{0}'", "\" + '@Html.Raw(Html.Encode(Model.Title))' + \""))';
+
+        document.querySelector('form button[type="submit"]').addEventListener('click', function(e) {
+            e.preventDefault();
+
+            const confirmResult = confirm(
+                '@Html.Raw(Localizer["FinalWarningPrefix"])' +
+                '@Html.Raw(Html.Encode(Model.Title))' +
+                '@Html.Raw(Localizer["FinalWarningSuffix"])'
+            );
+
+            if (confirmResult) {
+                // Small delay to let user see the confirmation
+                setTimeout(() => {
+                    this.form.submit();
+                }, 500);
+            }
+        });
+    </script>
+}
+
+<style>
+    .card.border-danger {
+        border-width: 2px;
+    }
+
+    .list-group-item {
+        border-left: 3px solid #dc3545;
+    }
+
+    .btn-danger:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 4px 8px rgba(220, 53, 69, 0.3);
+    }
+</style>

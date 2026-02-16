@@ -1,0 +1,263 @@
+﻿@model StepWise.Web.ViewModels.CareerPath.CareerPathDetailsViewModel
+@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer Localizer
+
+@{
+    ViewData["Title"] = Model.Title;
+}
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+
+            <!-- Header Section -->
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <div>
+                    <h2 class="mb-1">@Model.Title</h2>
+                    <p class="text-muted mb-0">
+                        <i class="fas fa-bullseye me-1"></i>
+                        @Localizer["Goal"]: <strong>@Model.GoalProfession</strong>
+                    </p>
+                </div>
+                <div>
+                    @if (Model.IsPublic)
+                    {
+                        <span class="badge bg-success fs-6">
+                            <i class="fas fa-globe me-1"></i>@Localizer["Public"]
+                        </span>
+                    }
+                    else
+                    {
+                        <span class="badge bg-secondary fs-6">
+                            <i class="fas fa-lock me-1"></i>@Localizer["Private"]
+                        </span>
+                    }
+                </div>
+            </div>
+
+            <!-- Description Section -->
+            @if (Model.HasDescription)
+            {
+                <div class="card mb-4">
+                    <div class="card-header">
+                        <h5 class="card-title mb-0">
+                            <i class="fas fa-info-circle me-2"></i>
+                            @Localizer["Description"]
+                        </h5>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text">@Model.Description</p>
+                    </div>
+                </div>
+            }
+
+            <!-- Career Steps Section -->
+            <div class="card mb-4">
+                <div class="card-header d-flex justify-content-between align-items-center">
+                    <h5 class="card-title mb-0">
+                        <i class="fas fa-list-ol me-2"></i>
+                        @Localizer["CareerSteps"] (@Model.TotalStepsCount)
+                    </h5>
+                </div>
+                <div class="card-body">
+                    @if (Model.HasSteps)
+                    {
+                        <div class="list-group list-group-flush">
+                            @foreach (var step in Model.Steps)
+                            {
+                                <div class="list-group-item border-0 px-0">
+                                    <div class="row align-items-center">
+
+                                        @if (User.IsInRole("User"))
+                                        {
+                                            <div class="col-1 text-center">
+                                                <input type="checkbox"
+                                                       class="form-check-input"
+                                                @(step.IsCompleted ? "checked" : "")
+                                                       onchange="toggleStepCompletionCheckbox('@step.Id', this.checked)" />
+                                            </div>
+                                        }
+
+                                        <div class="col-11">
+                                            <h6 class="mb-1 @(step.IsCompleted ? "text-decoration-line-through text-muted" : "")">
+                                                @step.Title
+                                            </h6>
+
+                                            @if (step.HasDescription)
+                                            {
+                                                <p class="mb-2 text-muted small">@step.Description</p>
+                                            }
+
+                                            <div class="d-flex flex-wrap gap-2 align-items-center">
+
+                                                <span class="badge @step.GetStepTypeBadgeClass()">
+                                                    <i class="@step.GetStepTypeIcon() me-1"></i>@step.Type
+                                                </span>
+
+                                                @if (step.HasDeadline)
+                                                {
+                                                    <span class="badge @(step.IsOverdue ? "bg-danger" : "bg-info")">
+                                                        <i class="fas fa-calendar-alt me-1"></i>
+                                                        @step.GetFormattedDeadline()
+                                                    </span>
+                                                }
+
+                                                @if (step.HasUrl)
+                                                {
+                                                    <a href="@step.Url" target="_blank" class="btn btn-sm btn-outline-primary">
+                                                        <i class="fas fa-external-link-alt me-1"></i>
+                                                        @Localizer["Visit"]
+                                                    </a>
+                                                }
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="text-center py-4">
+                            <i class="fas fa-clipboard-list fa-3x text-muted mb-3"></i>
+                            <h5 class="text-muted">@Localizer["NoSteps"]</h5>
+                            <p class="text-muted">@Localizer["StartBuilding"]</p>
+                        </div>
+                    }
+                </div>
+            </div>
+
+            @if (User.IsInRole("User") && Model.HasSteps)
+            {
+                <div class="card mb-4">
+                    <div class="card-header">
+                        <h5 class="card-title mb-0">
+                            <i class="fas fa-chart-line me-2"></i>
+                            @Localizer["Progress"]
+                        </h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <span>
+                                @Model.CompletedStepsCount @Localizer["Of"] @Model.TotalStepsCount @Localizer["StepsCompleted"]
+                            </span>
+                            <span class="fw-bold">@Model.ProgressPercentage%</span>
+                        </div>
+                        <div class="progress" style="height: 10px;">
+                            <div class="progress-bar"
+                                 role="progressbar"
+                                 style="width: @(Model.ProgressPercentage)%"
+                                 aria-valuenow="@Model.ProgressPercentage"
+                                 aria-valuemin="0"
+                                 aria-valuemax="100">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+
+            @if (Model.HasCreator)
+            {
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <h6>@Localizer["CreatedBy"]</h6>
+                        <p class="text-muted mb-0">@Model.CreatedByUserName</p>
+                    </div>
+                </div>
+            }
+
+            <!-- Action Buttons -->
+            <div class="d-flex justify-content-between">
+
+                <a asp-controller="MyCareerPaths"
+                   asp-action="Index"
+                   class="btn btn-secondary">
+                    <i class="fas fa-arrow-left me-1"></i>
+                    @Localizer["Back"]
+                </a>
+
+                @if (User.Identity?.IsAuthenticated == true && User.IsInRole("Creator"))
+                {
+                    <div>
+                        <a asp-action="Edit"
+                           asp-route-id="@Model.Id"
+                           class="btn btn-outline-primary me-2">
+                            <i class="fas fa-edit me-1"></i>
+                            @Localizer["Edit"]
+                        </a>
+
+                        <button type="button"
+                                class="btn btn-outline-danger"
+                                data-bs-toggle="modal"
+                                data-bs-target="#deleteModal">
+                            <i class="fas fa-trash me-1"></i>
+                            @Localizer["Delete"]
+                        </button>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Delete Modal -->
+<div class="modal fade" id="deleteModal" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <h5 class="modal-title">@Localizer["ConfirmDelete"]</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+
+            <div class="modal-body">
+                <p>@Localizer["DeleteQuestion"]</p>
+                <strong>"@Model.Title"</strong>
+                <p class="text-muted mt-2">@Localizer["DeleteWarning"]</p>
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                    @Localizer["Cancel"]
+                </button>
+
+                <form asp-controller="MyCareerPaths"
+                      asp-action="Delete"
+                      method="post"
+                      class="d-inline">
+
+                    @Html.AntiForgeryToken()
+                    <input type="hidden" name="id" value="@Model.Id" />
+
+                    <button type="submit" class="btn btn-danger">
+                        <i class="fas fa-trash me-1"></i>
+                        @Localizer["Delete"]
+                    </button>
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<script>
+    function toggleStepCompletionCheckbox(stepId, isComplete) {
+        const token = document.querySelector('input[name="__RequestVerificationToken"]')?.value;
+
+        fetch('/CareerStep/ToggleCompletion', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'RequestVerificationToken': token
+            },
+            body: JSON.stringify({
+                stepId: stepId,
+                isComplete: isComplete
+            })
+        }).then(response => {
+            if (response.ok) {
+                location.reload();
+            } else {
+                alert("Error updating step.");
+            }
+        });
+    }
+</script>

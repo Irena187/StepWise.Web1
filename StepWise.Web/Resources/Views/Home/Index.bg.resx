@@ -1,0 +1,99 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+	<data name="Title" xml:space="preserve">
+    <value>Начало - Стъпка По Стъпка</value>
+  </data>
+	<data name="WelcomeTitle" xml:space="preserve">
+    <value>Добре дошли в Стъпка По Стъпка</value>
+  </data>
+	<data name="WelcomeSubtitle" xml:space="preserve">
+    <value>Вашата персонализирана платформа за кариерно развитие. Открийте структурирани кариерни пътища, проследявайте напредъка си и постигнете професионалните си цели стъпка по стъпка.</value>
+  </data>
+	<data name="BrowseCareerPaths" xml:space="preserve">
+    <value>Разгледай кариерни пътища</value>
+  </data>
+	<data name="CreatePath" xml:space="preserve">
+    <value>Създай път</value>
+  </data>
+	<data name="MyBookmarks" xml:space="preserve">
+    <value>Моите отметки</value>
+  </data>
+	<data name="HowStepWiseWorks" xml:space="preserve">
+    <value>Как работи Стъпка По Стъпка</value>
+  </data>
+	<data name="DiscoverCareerPaths" xml:space="preserve">
+    <value>Открий кариерни пътища</value>
+  </data>
+	<data name="DiscoverCareerPathsDesc" xml:space="preserve">
+    <value>Разгледайте структурирани кариерни пътища, създадени от професионалисти и експерти в индустрията. Намерете пътища, които отговарят на вашите цели и интереси.</value>
+  </data>
+	<data name="TrackYourProgress" xml:space="preserve">
+    <value>Следи напредъка си</value>
+  </data>
+	<data name="TrackYourProgressDesc" xml:space="preserve">
+    <value>Отбележете кариерните пътища, които ви интересуват и следете напредъка си през всяка стъпка. Бъдете организирани и мотивирани в професионалното си развитие.</value>
+  </data>
+	<data name="AchieveYourGoals" xml:space="preserve">
+    <value>Постигни целите си</value>
+  </data>
+	<data name="AchieveYourGoalsDesc" xml:space="preserve">
+    <value>Следвайте стъпка по стъпка ръководството, за да достигнете целевата си професия. Завършвайте етапи и празнувайте постиженията си по пътя.</value>
+  </data>
+	<data name="CareerPaths" xml:space="preserve">
+    <value>Кариерни пътища</value>
+  </data>
+	<data name="StructuredLearningJourneys" xml:space="preserve">
+    <value>Структурирано обучение</value>
+  </data>
+	<data name="Community" xml:space="preserve">
+    <value>Общност</value>
+  </data>
+	<data name="LearnFromProfessionals" xml:space="preserve">
+    <value>Учете от професионалисти</value>
+  </data>
+	<data name="StepByStep" xml:space="preserve">
+    <value>Стъпка по стъпка</value>
+  </data>
+	<data name="ClearActionableGuidance" xml:space="preserve">
+    <value>Ясни, приложими насоки</value>
+  </data>
+	<data name="ProgressTracking" xml:space="preserve">
+    <value>Следене на напредъка</value>
+  </data>
+	<data name="MonitorYourAdvancement" xml:space="preserve">
+    <value>Наблюдавайте развитието си</value>
+  </data>
+	<data name="ReadyToStart" xml:space="preserve">
+    <value>Готови ли сте да започнете?</value>
+  </data>
+	<data name="ReadyToStartDesc" xml:space="preserve">
+    <value>Присъединете се към хиляди професионалисти, които използват Стъпка По Стъпка за развитие на кариерата си. Независимо дали тепърва започвате или искате да направите промяна, ние сме тук, за да ви насочим.</value>
+  </data>
+	<data name="GetStarted" xml:space="preserve">
+    <value>Започни</value>
+  </data>
+	<data name="ShareYourExpertise" xml:space="preserve">
+    <value>Сподели опита си</value>
+  </data>
+	<data name="PopularCareerPaths" xml:space="preserve">
+    <value>Популярни кариерни пътища</value>
+  </data>
+	<data name="SoftwareDeveloper" xml:space="preserve">
+    <value>Софтуерен разработчик</value>
+  </data>
+	<data name="DataScientist" xml:space="preserve">
+    <value>Специалист по данни</value>
+  </data>
+	<data name="ProductManager" xml:space="preserve">
+    <value>Продуктов мениджър</value>
+  </data>
+	<data name="Steps" xml:space="preserve">
+    <value>стъпки</value>
+  </data>
+	<data name="Following" xml:space="preserve">
+    <value>следващи</value>
+  </data>
+	<data name="ViewAllCareerPaths" xml:space="preserve">
+    <value>Виж всички кариерни пътища</value>
+  </data>
+</root>

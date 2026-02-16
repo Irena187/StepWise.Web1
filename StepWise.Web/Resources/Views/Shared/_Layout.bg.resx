@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+	<data name="AppName" xml:space="preserve">
+    <value>Стъпка по Стъпка</value>
+	</data>
+	<data name="Home" xml:space="preserve">
+    <value>Начало</value>
+  </data>
+	<data name="CareerPaths" xml:space="preserve">
+    <value>Кариерни пътища</value>
+  </data>
+	<data name="MyBookmarks" xml:space="preserve">
+    <value>Моите отметки</value>
+  </data>
+	<data name="MyCareerPaths" xml:space="preserve">
+    <value>Моите кариерни пътища</value>
+  </data>
+	<data name="Privacy" xml:space="preserve">
+    <value>Поверителност</value>
+  </data>
+	<data name="ToggleNavigation" xml:space="preserve">
+    <value>Превключи навигацията</value>
+  </data>
+</root>

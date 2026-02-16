@@ -1,0 +1,99 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+	<xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+		<xsd:element name="root" msdata:IsDataSet="true">
+			<xsd:complexType>
+				<xsd:choice maxOccurs="unbounded">
+					<xsd:element name="data">
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+								<xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+							</xsd:sequence>
+							<xsd:attribute name="name" type="xsd:string" msdata:Ordinal="1" />
+							<xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+							<xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="resheader">
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+							</xsd:sequence>
+							<xsd:attribute name="name" type="xsd:string" use="required" />
+						</xsd:complexType>
+					</xsd:element>
+				</xsd:choice>
+			</xsd:complexType>
+		</xsd:element>
+	</xsd:schema>
+	<resheader name="resmimetype">
+		<value>text/microsoft-resx</value>
+	</resheader>
+	<resheader name="version">
+		<value>1.3</value>
+	</resheader>
+	<resheader name="reader">
+		<value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.3500.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+	</resheader>
+	<resheader name="writer">
+		<value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.3500.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+	</resheader>
+	<data name="Goal" xml:space="preserve">
+		<value>Goal</value>
+	</data>
+	<data name="Public" xml:space="preserve">
+		<value>Public</value>
+	</data>
+	<data name="Private" xml:space="preserve">
+		<value>Private</value>
+	</data>
+	<data name="Description" xml:space="preserve">
+		<value>Description</value>
+	</data>
+	<data name="CareerSteps" xml:space="preserve">
+		<value>Career Steps</value>
+	</data>
+	<data name="Visit" xml:space="preserve">
+		<value>Visit</value>
+	</data>
+	<data name="NoSteps" xml:space="preserve">
+		<value>No Steps Available</value>
+	</data>
+	<data name="StartBuilding" xml:space="preserve">
+		<value>Start building your career path by adding steps.</value>
+	</data>
+	<data name="Progress" xml:space="preserve">
+		<value>Progress</value>
+	</data>
+	<data name="Of" xml:space="preserve">
+		<value>of</value>
+	</data>
+	<data name="StepsCompleted" xml:space="preserve">
+		<value>steps completed</value>
+	</data>
+	<data name="CreatedBy" xml:space="preserve">
+		<value>Created by</value>
+	</data>
+	<data name="Back" xml:space="preserve">
+		<value>Back</value>
+	</data>
+	<data name="Edit" xml:space="preserve">
+		<value>Edit</value>
+	</data>
+	<data name="Delete" xml:space="preserve">
+		<value>Delete</value>
+	</data>
+	<data name="ConfirmDelete" xml:space="preserve">
+		<value>Confirm Deletion</value>
+	</data>
+	<data name="DeleteQuestion" xml:space="preserve">
+		<value>Are you sure you want to delete this career path?</value>
+	</data>
+	<data name="DeleteWarning" xml:space="preserve">
+		<value>This action cannot be undone.</value>
+	</data>
+	<data name="Cancel" xml:space="preserve">
+		<value>Cancel</value>
+	</data>
+</root>

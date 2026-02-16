@@ -1,0 +1,291 @@
+﻿@model StepWise.Web.ViewModels.CareerPath.EditCareerPathInputModel
+@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer Localizer
+
+@{
+    ViewData["Title"] = Localizer["EditCareerPath"];
+}
+
+<div class="container">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <div>
+            <h2>@Localizer["EditCareerPath"]</h2>
+            @if (User.Identity != null && User.Identity.IsAuthenticated)
+            {
+                <p class="text-muted mb-0">@Localizer["EditingAs"] <strong>@User.Identity.Name</strong></p>
+            }
+        </div>
+    </div>
+
+    <form asp-controller="MyCareerPaths" asp-action="Edit" method="post">
+        <input type="hidden" asp-for="Id" />
+
+        <!-- Career Path Information -->
+        <div class="card mb-4">
+            <div class="card-header">
+                <h5 class="card-title mb-0">@Localizer["CareerPathInformation"]</h5>
+            </div>
+            <div class="card-body">
+                <div class="mb-3">
+                    <label asp-for="Title" class="form-label">@Localizer["Title"]</label>
+                    <input asp-for="Title" class="form-control" />
+                    <span asp-validation-for="Title" class="text-danger"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="GoalProfession" class="form-label">@Localizer["GoalProfession"]</label>
+                    <input asp-for="GoalProfession" class="form-control" />
+                    <span asp-validation-for="GoalProfession" class="text-danger"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="Description" class="form-label">@Localizer["Description"]</label>
+                    <textarea asp-for="Description" class="form-control" rows="3"></textarea>
+                    <span asp-validation-for="Description" class="text-danger"></span>
+                </div>
+
+                <div class="mb-3">
+                    <div class="form-check">
+                        <input asp-for="IsPublic" class="form-check-input" type="checkbox" />
+                        <label asp-for="IsPublic" class="form-check-label">@Localizer["MakePublic"]</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Career Steps -->
+        <div class="card mb-4">
+            <div class="card-header d-flex justify-content-between align-items-center">
+                <h5 class="card-title mb-0">@Localizer["CareerSteps"]</h5>
+                <button type="button" class="btn btn-sm btn-outline-primary" onclick="addStep()">
+                    <i class="fas fa-plus me-1"></i>@Localizer["AddStep"]
+                </button>
+            </div>
+            <div class="card-body">
+                <div id="steps-container">
+                    @if (Model.Steps != null && Model.Steps.Any())
+                    {
+                        @for (int i = 0; i < Model.Steps.Count; i++)
+                        {
+                            <div class="step-form border rounded p-3 mb-3" data-step-index="@i">
+                                <input type="hidden" asp-for="Steps[@i].Id" />
+                                <div class="d-flex justify-content-between align-items-center mb-3">
+                                    <h6 class="mb-0">@Localizer["Step"] @(i + 1)</h6>
+                                    <button type="button" class="btn btn-sm btn-outline-danger" onclick="removeStep(this)">
+                                        <i class="fas fa-trash"></i>
+                                    </button>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="mb-3">
+                                            <label class="form-label">@Localizer["StepTitle"]</label>
+                                            <input asp-for="Steps[@i].Title" class="form-control" required />
+                                            <span asp-validation-for="Steps[@i].Title" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="mb-3">
+                                            <label class="form-label">@Localizer["StepType"]</label>
+                                            <select asp-for="Steps[@i].Type" class="form-select">
+                                                <option value="0">@Localizer["Course"]</option>
+                                                <option value="1">@Localizer["Book"]</option>
+                                                <option value="2">@Localizer["Internship"]</option>
+                                                <option value="3">@Localizer["Job"]</option>
+                                                <option value="4">@Localizer["Certification"]</option>
+                                                <option value="5">@Localizer["Degree"]</option>
+                                                <option value="6">@Localizer["Documentation"]</option>
+                                                <option value="7">@Localizer["Other"]</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label class="form-label">@Localizer["Description"]</label>
+                                    <textarea asp-for="Steps[@i].Description" class="form-control" rows="2"></textarea>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-8">
+                                        <div class="mb-3">
+                                            <label class="form-label">@Localizer["ResourceURL"]</label>
+                                            <input asp-for="Steps[@i].Url" class="form-control" type="url" placeholder="https://..." />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="mb-3">
+                                            <label class="form-label">@Localizer["Deadline"]</label>
+                                            <input asp-for="Steps[@i].Deadline" class="form-control" type="date" />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="mb-0">
+                                    <div class="form-check">
+                                        <input asp-for="Steps[@i].IsCompleted" class="form-check-input" type="checkbox" />
+                                        <label class="form-check-label">
+                                            @Localizer["MarkAsCompletedShort"]
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    }
+                    else
+                    {
+                        <div class="text-center text-muted py-4" id="no-steps-message">
+                            <i class="fas fa-list-ol fa-2x mb-2"></i>
+                            <p>@Localizer["NoStepsAddedYet"]</p>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="d-flex justify-content-between">
+            <a asp-action="Details" asp-route-id="@Model.Id" class="btn btn-secondary">@Localizer["Cancel"]</a>
+            <button type="submit" class="btn btn-primary">
+                <i class="fas fa-save me-1"></i>@Localizer["UpdateCareerPath"]
+            </button>
+        </div>
+    </form>
+</div>
+
+@section Scripts {
+    <script>
+        let stepIndex = @(Model.Steps?.Count ?? 0);
+
+        // Localized strings for JavaScript
+        const localizedStrings = {
+            step: '@Localizer["Step"]',
+            stepTitle: '@Localizer["StepTitle"]',
+            stepType: '@Localizer["StepType"]',
+            course: '@Localizer["Course"]',
+            book: '@Localizer["Book"]',
+            internship: '@Localizer["Internship"]',
+            job: '@Localizer["Job"]',
+            certification: '@Localizer["Certification"]',
+            degree: '@Localizer["Degree"]',
+            documentation: '@Localizer["Documentation"]',
+            other: '@Localizer["Other"]',
+            description: '@Localizer["Description"]',
+            resourceURL: '@Localizer["ResourceURL"]',
+            deadline: '@Localizer["Deadline"]',
+            markAsCompleted: '@Localizer["MarkAsCompletedShort"]'
+        };
+
+        function addStep() {
+            const noStepsMessage = document.getElementById('no-steps-message');
+            if (noStepsMessage) {
+                noStepsMessage.style.display = 'none';
+            }
+
+            const container = document.getElementById('steps-container');
+            const stepHtml = `
+                <div class="step-form border rounded p-3 mb-3" data-step-index="${stepIndex}">
+                    <input type="hidden" name="Steps[${stepIndex}].Id" value="" />
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <h6 class="mb-0">${localizedStrings.step} ${stepIndex + 1}</h6>
+                        <button type="button" class="btn btn-sm btn-outline-danger" onclick="removeStep(this)">
+                            <i class="fas fa-trash"></i>
+                        </button>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label class="form-label">${localizedStrings.stepTitle}</label>
+                                <input name="Steps[${stepIndex}].Title" class="form-control" required />
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label class="form-label">${localizedStrings.stepType}</label>
+                                <select name="Steps[${stepIndex}].Type" class="form-select">
+                                    <option value="0">${localizedStrings.course}</option>
+                                    <option value="1">${localizedStrings.book}</option>
+                                    <option value="2">${localizedStrings.internship}</option>
+                                    <option value="3">${localizedStrings.job}</option>
+                                    <option value="4">${localizedStrings.certification}</option>
+                                    <option value="5">${localizedStrings.degree}</option>
+                                    <option value="6">${localizedStrings.documentation}</option>
+                                    <option value="7" selected>${localizedStrings.other}</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">${localizedStrings.description}</label>
+                        <textarea name="Steps[${stepIndex}].Description" class="form-control" rows="2"></textarea>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-8">
+                            <div class="mb-3">
+                                <label class="form-label">${localizedStrings.resourceURL}</label>
+                                <input name="Steps[${stepIndex}].Url" class="form-control" type="url" placeholder="https://..." />
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="mb-3">
+                                <label class="form-label">${localizedStrings.deadline}</label>
+                                <input name="Steps[${stepIndex}].Deadline" class="form-control" type="date" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mb-0">
+                        <div class="form-check">
+                            <input name="Steps[${stepIndex}].IsCompleted" class="form-check-input" type="checkbox" />
+                            <label class="form-check-label">
+                                ${localizedStrings.markAsCompleted}
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            `;
+
+            container.insertAdjacentHTML('beforeend', stepHtml);
+            stepIndex++;
+
+            updateStepNumbers();
+        }
+
+        function removeStep(button) {
+            const stepForm = button.closest('.step-form');
+            stepForm.remove();
+            updateStepNumbers();
+
+            const remainingSteps = document.querySelectorAll('.step-form');
+            if (remainingSteps.length === 0) {
+                const noStepsMessage = document.getElementById('no-steps-message');
+                if (noStepsMessage) {
+                    noStepsMessage.style.display = 'block';
+                }
+            }
+        }
+
+        function updateStepNumbers() {
+            const stepForms = document.querySelectorAll('.step-form');
+            stepForms.forEach((form, index) => {
+                const stepNumber = form.querySelector('h6');
+                if (stepNumber) {
+                    stepNumber.textContent = `${localizedStrings.step} ${index + 1}`;
+                }
+            });
+        }
+    </script>
+}
+
+<style>
+    .step-form {
+        background-color: #f8f9fa;
+        transition: all 0.3s ease;
+    }
+
+        .step-form:hover {
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+</style>

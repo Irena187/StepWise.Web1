@@ -1,0 +1,71 @@
+﻿@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer Localizer
+
+@{
+    ViewData["Title"] = Localizer["Title"];
+}
+
+<div class="container my-5">
+    <div class="row">
+        <div class="col-12 text-center mb-5">
+            <h1 class="display-4">@Localizer["PrivacyTitle"]</h1>
+            <p class="lead text-muted">
+                @Localizer["PrivacySubtitle"]
+            </p>
+        </div>
+    </div>
+
+    <div class="row mb-4">
+        <div class="col-md-6 mb-4">
+            <div class="card shadow-sm h-100">
+                <div class="card-body">
+                    <h5 class="card-title text-primary">
+                        <i class="fas fa-user-shield me-2"></i> @Localizer["InformationWeCollect"]
+                    </h5>
+                    <p class="card-text">
+                        @Localizer["InformationWeCollectDesc"]
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 mb-4">
+            <div class="card shadow-sm h-100">
+                <div class="card-body">
+                    <h5 class="card-title text-success">
+                        <i class="fas fa-lock me-2"></i> @Localizer["HowWeUseYourData"]
+                    </h5>
+                    <p class="card-text">
+                        @Localizer["HowWeUseYourDataDesc"]
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mb-4">
+        <div class="col-md-6 mb-4">
+            <div class="card shadow-sm h-100">
+                <div class="card-body">
+                    <h5 class="card-title text-info">
+                        <i class="fas fa-shield-alt me-2"></i> @Localizer["Security"]
+                    </h5>
+                    <p class="card-text">
+                        @Localizer["SecurityDesc"]
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 mb-4">
+            <div class="card shadow-sm h-100">
+                <div class="card-body">
+                    <h5 class="card-title text-warning">
+                        <i class="fas fa-cogs me-2"></i> @Localizer["YourControls"]
+                    </h5>
+                    <p class="card-text">
+                        @Localizer["YourControlsDesc"]
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

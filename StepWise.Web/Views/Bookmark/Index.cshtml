@@ -1,0 +1,287 @@
+﻿@model IEnumerable<StepWise.Web.ViewModels.Bookmarks.BookmarkViewModel>
+@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer Localizer
+
+@{
+    ViewData["Title"] = Localizer["Title"];
+    var token = Html.AntiForgeryToken().ToString();
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+
+            <!-- Header -->
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <div>
+                    <h2 class="mb-0">
+                        <i class="fas fa-bookmark me-2"></i>
+                        @Localizer["MyBookmarkedCareerPaths"]
+                    </h2>
+                    <p class="text-muted mb-0">
+                        @Localizer["TrackAndManage"]
+                    </p>
+                </div>
+                <a asp-controller="CareerPath" asp-action="Index" class="btn btn-outline-primary">
+                    <i class="fas fa-search me-1"></i>
+                    @Localizer["BrowseCareerPaths"]
+                </a>
+            </div>
+
+            @if (Model.Any())
+            {
+                <!-- Statistics -->
+                <div class="row mb-4">
+                    <div class="col-md-3">
+                        <div class="card bg-primary text-white">
+                            <div class="card-body text-center">
+                                <h4 class="mb-0">@Model.Count()</h4>
+                                <small>@Localizer["TotalBookmarked"]</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="card bg-success text-white">
+                            <div class="card-body text-center">
+                                <h4 class="mb-0">@Model.Count(cp => cp.IsActive)</h4>
+                                <small>@Localizer["CurrentlyActive"]</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="card bg-info text-white">
+                            <div class="card-body text-center">
+                                <h4 class="mb-0">@Model.Sum(cp => cp.CompletedStepsCount)</h4>
+                                <small>@Localizer["CompletedSteps"]</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="card bg-warning text-white">
+                            <div class="card-body text-center">
+                                <h4 class="mb-0">@Model.Sum(cp => cp.TotalStepsCount)</h4>
+                                <small>@Localizer["TotalSteps"]</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Filters -->
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <div class="row align-items-center">
+                            <div class="col-md-4">
+                                <div class="input-group">
+                                    <span class="input-group-text">
+                                        <i class="fas fa-search"></i>
+                                    </span>
+                                    <input type="text"
+                                           class="form-control"
+                                           id="searchInput"
+                                           placeholder="@Localizer["SearchCareerPaths"]">
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <select class="form-select" id="sortBy">
+                                    <option value="bookmarked">@Localizer["RecentlyBookmarked"]</option>
+                                    <option value="title">@Localizer["TitleAZ"]</option>
+                                    <option value="creator">@Localizer["Creator"]</option>
+                                    <option value="profession">@Localizer["GoalProfession"]</option>
+                                </select>
+                            </div>
+                            <div class="col-md-3">
+                                <select class="form-select" id="filterStatus">
+                                    <option value="all">@Localizer["AllBookmarks"]</option>
+                                    <option value="active">@Localizer["Active"]</option>
+                                    <option value="completed">@Localizer["Completed"]</option>
+                                </select>
+                            </div>
+                            <div class="col-md-2">
+                                <button class="btn btn-outline-secondary w-100" onclick="clearFilters()">
+                                    <i class="fas fa-times"></i>
+                                    @Localizer["Clear"]
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Career Paths -->
+                <div class="row" id="careerPathsGrid">
+                    @foreach (var careerPath in Model)
+                    {
+                        var progressClass = careerPath.ProgressPercentage switch
+                        {
+                            <= 25 => "bg-danger",
+                            <= 50 => "bg-warning",
+                            <= 75 => "bg-info",
+                            _ => "bg-success"
+                        };
+
+                        <div class="col-md-6 col-lg-4 mb-4 career-path-item"
+                             data-id="@careerPath.Id"
+                             data-title="@careerPath.Title.ToLower()"
+                             data-creator="@careerPath.CreatedByUserName.ToLower()"
+                             data-profession="@careerPath.GoalProfession.ToLower()"
+                             data-status="@(careerPath.ProgressPercentage == 100 ? "completed" : "active")"
+                             data-bookmarked="@careerPath.BookmarkedDate.Ticks">
+
+                            <div class="card h-100 @(careerPath.IsActive ? "border-primary" : "border-success")">
+
+                                <div class="card-header d-flex justify-content-between align-items-center">
+                                    <h5 class="card-title mb-0">@careerPath.Title</h5>
+                                    <div class="dropdown">
+                                        <button class="btn btn-sm btn-outline-secondary dropdown-toggle"
+                                                type="button"
+                                                data-bs-toggle="dropdown">
+                                            <i class="fas fa-ellipsis-v"></i>
+                                        </button>
+                                        <ul class="dropdown-menu">
+                                            <li>
+                                                <a class="dropdown-item"
+                                                   asp-controller="CareerPath"
+                                                   asp-action="Details"
+                                                   asp-route-id="@careerPath.Id">
+                                                    <i class="fas fa-eye me-2"></i>
+                                                    @Localizer["ViewDetails"]
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item"
+                                                   href="#"
+                                                   onclick="removeBookmark('@careerPath.Id')">
+                                                    <i class="fas fa-bookmark me-2"></i>
+                                                    @Localizer["RemoveBookmark"]
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                <div class="card-body">
+
+                                    <p class="card-text">
+                                        <strong>@Localizer["Goal"]</strong> @careerPath.GoalProfession
+                                    </p>
+
+                                    @if (!string.IsNullOrEmpty(careerPath.Description))
+                                    {
+                                        <p class="card-text">@careerPath.TruncatedDescription</p>
+                                    }
+
+                                    <p class="card-text">
+                                        <small class="text-muted">
+                                            @careerPath.VisibilityText
+                                            @if (!string.IsNullOrEmpty(careerPath.CreatedByUserName))
+                                            {
+                                                <span>
+                                                    • @Localizer["CreatedBy"] @careerPath.CreatedByUserName
+                                                </span>
+                                            }
+                                        </small>
+                                    </p>
+
+                                    <p class="card-text">
+                                        <small class="text-muted">
+                                            @Localizer["BookmarkedOn"]
+                                            @careerPath.BookmarkedDate.ToString("MMM dd, yyyy")
+                                        </small>
+                                    </p>
+
+                                    <!-- Progress -->
+                                    <div class="mb-3">
+                                        <div class="d-flex justify-content-between mb-1">
+                                            <small class="text-muted">@Localizer["Progress"]</small>
+                                            <small class="text-muted">
+                                                @careerPath.CompletedStepsCount/@careerPath.TotalStepsCount
+                                                @Localizer["Steps"]
+                                            </small>
+                                        </div>
+                                        <div class="progress" style="height:6px;">
+                                            <div class="progress-bar @progressClass"
+                                                 role="progressbar"
+                                                 style="width:@careerPath.ProgressPercentage%">
+                                            </div>
+                                        </div>
+                                        <small class="text-muted">
+                                            @careerPath.ProgressPercentage% @Localizer["Complete"]
+                                        </small>
+                                    </div>
+
+                                    <!-- Status -->
+                                    <div class="mb-3">
+                                        @if (careerPath.ProgressPercentage == 100)
+                                        {
+                                            <span class="badge bg-success">
+                                                <i class="fas fa-check me-1"></i>
+                                                @Localizer["Completed"]
+                                            </span>
+                                        }
+                                        else
+                                        {
+                                            <span class="badge bg-primary">
+                                                <i class="fas fa-play me-1"></i>
+                                                @Localizer["Active"]
+                                            </span>
+                                        }
+                                    </div>
+
+                                    <a asp-controller="CareerPath"
+                                       asp-action="Details"
+                                       asp-route-id="@careerPath.Id"
+                                       class="btn btn-primary btn-sm w-100">
+                                        <i class="fas fa-eye me-1"></i>
+                                        @Localizer["ViewDetails"]
+                                    </a>
+
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+
+                <div class="alert alert-info d-none" id="noResultsMessage">
+                    <h4>@Localizer["NoCareerPathsFound"]</h4>
+                    <p>@Localizer["NoCareerPathsMatch"]</p>
+                </div>
+
+                <div class="mt-3">
+                    <p class="text-muted">
+                        @Localizer["Total"]:
+                        <span id="totalCount">@Model.Count()</span>
+                        @Localizer["BookmarkedCareerPaths"]
+                    </p>
+                </div>
+            }
+            else
+            {
+                <div class="alert alert-info text-center">
+                    <div class="mb-3">
+                        <i class="fas fa-bookmark fa-3x text-muted"></i>
+                    </div>
+                    <h4>@Localizer["NoBookmarkedCareerPaths"]</h4>
+                    <p class="mb-3">@Localizer["NoBookmarksMessage"]</p>
+                    <a asp-controller="CareerPath" asp-action="Index" class="btn btn-primary">
+                        <i class="fas fa-search me-1"></i>
+                        @Localizer["BrowseCareerPaths"]
+                    </a>
+                </div>
+            }
+
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        function removeBookmark(id) {
+            if (confirm('@Localizer["ConfirmRemove"]')) {
+                fetch(`/Bookmark/Remove/${id}`, { method: 'POST' })
+                    .then(r => {
+                        if (r.ok) location.reload();
+                        else alert('@Localizer["ErrorRemoving"]');
+                    });
+            }
+        }
+    </script>
+}

@@ -1,0 +1,111 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+	<xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+		<xsd:element name="root" msdata:IsDataSet="true">
+			<xsd:complexType>
+				<xsd:choice maxOccurs="unbounded">
+					<xsd:element name="data">
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+								<xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+							</xsd:sequence>
+							<xsd:attribute name="name" type="xsd:string" msdata:Ordinal="1" />
+							<xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+							<xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="resheader">
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+							</xsd:sequence>
+							<xsd:attribute name="name" type="xsd:string" use="required" />
+						</xsd:complexType>
+					</xsd:element>
+				</xsd:choice>
+			</xsd:complexType>
+		</xsd:element>
+	</xsd:schema>
+	<resheader name="resmimetype">
+		<value>text/microsoft-resx</value>
+	</resheader>
+	<resheader name="version">
+		<value>1.3</value>
+	</resheader>
+	<resheader name="reader">
+		<value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.3500.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+	</resheader>
+	<resheader name="writer">
+		<value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.3500.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+	</resheader>
+	<data name="DeleteCareerPath" xml:space="preserve">
+		<value>Delete Career Path</value>
+	</data>
+	<data name="ConfirmDeletion" xml:space="preserve">
+		<value>Confirm Deletion</value>
+	</data>
+	<data name="WarningTitle" xml:space="preserve">
+		<value>Warning: This action cannot be undone!</value>
+	</data>
+	<data name="WarningMessage" xml:space="preserve">
+		<value>You are about to permanently delete this career path and all associated steps.</value>
+	</data>
+	<data name="CareerPathToDelete" xml:space="preserve">
+		<value>Career Path to Delete:</value>
+	</data>
+	<data name="GoalProfession" xml:space="preserve">
+		<value>Goal Profession</value>
+	</data>
+	<data name="Description" xml:space="preserve">
+		<value>Description</value>
+	</data>
+	<data name="Visibility" xml:space="preserve">
+		<value>Visibility</value>
+	</data>
+	<data name="Public" xml:space="preserve">
+		<value>Public</value>
+	</data>
+	<data name="Private" xml:space="preserve">
+		<value>Private</value>
+	</data>
+	<data name="Steps" xml:space="preserve">
+		<value>Steps</value>
+	</data>
+	<data name="StepsCount" xml:space="preserve">
+		<value>step(s)</value>
+	</data>
+	<data name="CreatedBy" xml:space="preserve">
+		<value>Created by</value>
+	</data>
+	<data name="StepsThatWillBeDeleted" xml:space="preserve">
+		<value>Steps that will be deleted:</value>
+	</data>
+	<data name="Completed" xml:space="preserve">
+		<value>Completed</value>
+	</data>
+	<data name="Pending" xml:space="preserve">
+		<value>Pending</value>
+	</data>
+	<data name="AndMoreSteps" xml:space="preserve">
+		<value>and {0} more step(s)</value>
+	</data>
+	<data name="Cancel" xml:space="preserve">
+		<value>Cancel</value>
+	</data>
+	<data name="BackToList" xml:space="preserve">
+		<value>Back to List</value>
+	</data>
+	<data name="DeletePermanently" xml:space="preserve">
+		<value>Yes, Delete Permanently</value>
+	</data>
+	<data name="FirstConfirmation" xml:space="preserve">
+		<value>Are you absolutely sure you want to delete this career path? This action cannot be undone.</value>
+	</data>
+	<data name="FinalWarningPrefix" xml:space="preserve">
+		<value>FINAL WARNING: This will permanently delete the career path "</value>
+	</data>
+	<data name="FinalWarningSuffix" xml:space="preserve">
+		<value>" and all its steps. This action cannot be undone.\n\nAre you absolutely sure?</value>
+	</data>
+</root>

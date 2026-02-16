@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <data name="Title"><value>My Bookmarked Career Paths - StepWise</value></data>
+  <data name="MyBookmarkedCareerPaths"><value>My Bookmarked Career Paths</value></data>
+  <data name="TrackAndManage"><value>Track and manage your saved career journeys</value></data>
+  <data name="BrowseCareerPaths"><value>Browse Career Paths</value></data>
+  <data name="TotalBookmarked"><value>Total Bookmarked</value></data>
+  <data name="CurrentlyActive"><value>Currently Active</value></data>
+  <data name="CompletedSteps"><value>Completed Steps</value></data>
+  <data name="TotalSteps"><value>Total Steps</value></data>
+  <data name="SearchCareerPaths"><value>Search career paths...</value></data>
+  <data name="RecentlyBookmarked"><value>Recently Bookmarked</value></data>
+  <data name="TitleAZ"><value>Title A-Z</value></data>
+  <data name="Creator"><value>Creator</value></data>
+  <data name="GoalProfession"><value>Goal Profession</value></data>
+  <data name="AllBookmarks"><value>All Bookmarks</value></data>
+  <data name="Active"><value>Active</value></data>
+  <data name="Completed"><value>Completed</value></data>
+  <data name="Clear"><value>Clear</value></data>
+  <data name="ViewDetails"><value>View Details</value></data>
+  <data name="RemoveBookmark"><value>Remove Bookmark</value></data>
+  <data name="Goal"><value>Goal:</value></data>
+  <data name="CreatedBy"><value>Created by</value></data>
+  <data name="BookmarkedOn"><value>Bookmarked on</value></data>
+  <data name="Progress"><value>Progress</value></data>
+  <data name="Steps"><value>steps</value></data>
+  <data name="Complete"><value>complete</value></data>
+  <data name="NoCareerPathsFound"><value>No Career Paths Found</value></data>
+  <data name="NoCareerPathsMatch"><value>No career paths match your current filters. Try adjusting your search criteria.</value></data>
+  <data name="NoBookmarkedCareerPaths"><value>No Bookmarked Career Paths</value></data>
+  <data name="NoBookmarksMessage"><value>You haven't bookmarked any career paths yet. Start exploring and bookmark the ones that interest you!</value></data>
+  <data name="BookmarkRemoved"><value>Bookmark removed successfully.</value></data>
+  <data name="ConfirmRemove"><value>Are you sure you want to remove this bookmark?</value></data>
+  <data name="ErrorRemoving"><value>Error removing bookmark. Please try again.</value></data>
+</root>

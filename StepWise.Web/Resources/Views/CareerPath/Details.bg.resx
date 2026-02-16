@@ -1,0 +1,99 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+	<xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+		<xsd:element name="root" msdata:IsDataSet="true">
+			<xsd:complexType>
+				<xsd:choice maxOccurs="unbounded">
+					<xsd:element name="data">
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+								<xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+							</xsd:sequence>
+							<xsd:attribute name="name" type="xsd:string" msdata:Ordinal="1" />
+							<xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+							<xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="resheader">
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+							</xsd:sequence>
+							<xsd:attribute name="name" type="xsd:string" use="required" />
+						</xsd:complexType>
+					</xsd:element>
+				</xsd:choice>
+			</xsd:complexType>
+		</xsd:element>
+	</xsd:schema>
+	<resheader name="resmimetype">
+		<value>text/microsoft-resx</value>
+	</resheader>
+	<resheader name="version">
+		<value>1.3</value>
+	</resheader>
+	<resheader name="reader">
+		<value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.3500.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+	</resheader>
+	<resheader name="writer">
+		<value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.3500.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+	</resheader>
+	<data name="Goal" xml:space="preserve">
+		<value>Цел</value>
+	</data>
+	<data name="Public" xml:space="preserve">
+		<value>Публичен</value>
+	</data>
+	<data name="Private" xml:space="preserve">
+		<value>Частен</value>
+	</data>
+	<data name="Description" xml:space="preserve">
+		<value>Описание</value>
+	</data>
+	<data name="CareerSteps" xml:space="preserve">
+		<value>Кариерни стъпки</value>
+	</data>
+	<data name="Visit" xml:space="preserve">
+		<value>Посети</value>
+	</data>
+	<data name="NoSteps" xml:space="preserve">
+		<value>Няма налични стъпки</value>
+	</data>
+	<data name="StartBuilding" xml:space="preserve">
+		<value>Започнете да изграждате вашия кариерен път, като добавите стъпки.</value>
+	</data>
+	<data name="Progress" xml:space="preserve">
+		<value>Прогрес</value>
+	</data>
+	<data name="Of" xml:space="preserve">
+		<value>от</value>
+	</data>
+	<data name="StepsCompleted" xml:space="preserve">
+		<value>стъпки завършени</value>
+	</data>
+	<data name="CreatedBy" xml:space="preserve">
+		<value>Създаден от</value>
+	</data>
+	<data name="Back" xml:space="preserve">
+		<value>Назад</value>
+	</data>
+	<data name="Edit" xml:space="preserve">
+		<value>Редактирай</value>
+	</data>
+	<data name="Delete" xml:space="preserve">
+		<value>Изтрий</value>
+	</data>
+	<data name="ConfirmDelete" xml:space="preserve">
+		<value>Потвърди изтриването</value>
+	</data>
+	<data name="DeleteQuestion" xml:space="preserve">
+		<value>Сигурни ли сте, че искате да изтриете този кариерен път?</value>
+	</data>
+	<data name="DeleteWarning" xml:space="preserve">
+		<value>Това действие не може да бъде отменено.</value>
+	</data>
+	<data name="Cancel" xml:space="preserve">
+		<value>Откажи</value>
+	</data>
+</root>

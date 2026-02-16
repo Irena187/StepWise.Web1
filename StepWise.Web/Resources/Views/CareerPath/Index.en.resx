@@ -1,0 +1,99 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+	<xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+		<xsd:element name="root" msdata:IsDataSet="true">
+			<xsd:complexType>
+				<xsd:choice maxOccurs="unbounded">
+					<xsd:element name="data">
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+								<xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+							</xsd:sequence>
+							<xsd:attribute name="name" type="xsd:string" msdata:Ordinal="1" />
+							<xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+							<xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="resheader">
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+							</xsd:sequence>
+							<xsd:attribute name="name" type="xsd:string" use="required" />
+						</xsd:complexType>
+					</xsd:element>
+				</xsd:choice>
+			</xsd:complexType>
+		</xsd:element>
+	</xsd:schema>
+	<resheader name="resmimetype">
+		<value>text/microsoft-resx</value>
+	</resheader>
+	<resheader name="version">
+		<value>1.3</value>
+	</resheader>
+	<resheader name="reader">
+		<value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.3500.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+	</resheader>
+	<resheader name="writer">
+		<value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.3500.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+	</resheader>
+	<data name="CareerPaths" xml:space="preserve">
+		<value>Career Paths</value>
+	</data>
+	<data name="AddNewCareerPath" xml:space="preserve">
+		<value>Add New Career Path</value>
+	</data>
+	<data name="SearchPlaceholder" xml:space="preserve">
+		<value>Search by title, profession, or creator</value>
+	</data>
+	<data name="SortByTitle" xml:space="preserve">
+		<value>Sort by Title</value>
+	</data>
+	<data name="SortByCreator" xml:space="preserve">
+		<value>Sort by Creator</value>
+	</data>
+	<data name="SortByProfession" xml:space="preserve">
+		<value>Sort by Profession</value>
+	</data>
+	<data name="ClearFilters" xml:space="preserve">
+		<value>Clear Filters</value>
+	</data>
+	<data name="Goal" xml:space="preserve">
+		<value>Goal</value>
+	</data>
+	<data name="CreatedBy" xml:space="preserve">
+		<value>Created by</value>
+	</data>
+	<data name="Steps" xml:space="preserve">
+		<value>step(s)</value>
+	</data>
+	<data name="ViewDetails" xml:space="preserve">
+		<value>View Details</value>
+	</data>
+	<data name="Bookmark" xml:space="preserve">
+		<value>Bookmark</value>
+	</data>
+	<data name="NoCareerPathsFound" xml:space="preserve">
+		<value>No Career Paths Found</value>
+	</data>
+	<data name="TryAdjustingFilters" xml:space="preserve">
+		<value>Try adjusting your filters or search query.</value>
+	</data>
+	<data name="Total" xml:space="preserve">
+		<value>Total</value>
+	</data>
+	<data name="CareerPathsOnPage" xml:space="preserve">
+		<value>career path(s) on this page</value>
+	</data>
+	<data name="Previous" xml:space="preserve">
+		<value>Previous</value>
+	</data>
+	<data name="Next" xml:space="preserve">
+		<value>Next</value>
+	</data>
+	<data name="NoCareerPathsAvailable" xml:space="preserve">
+		<value>There are no career paths available at the moment.</value>
+	</data>
+</root>

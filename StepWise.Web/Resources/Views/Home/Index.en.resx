@@ -1,0 +1,99 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+	<data name="Title" xml:space="preserve">
+    <value>Home - StepWise</value>
+  </data>
+	<data name="WelcomeTitle" xml:space="preserve">
+    <value>Welcome to StepWise</value>
+  </data>
+	<data name="WelcomeSubtitle" xml:space="preserve">
+    <value>Your personalized career development platform. Discover structured career paths, track your progress, and achieve your professional goals step by step.</value>
+  </data>
+	<data name="BrowseCareerPaths" xml:space="preserve">
+    <value>Browse Career Paths</value>
+  </data>
+	<data name="CreatePath" xml:space="preserve">
+    <value>Create Path</value>
+  </data>
+	<data name="MyBookmarks" xml:space="preserve">
+    <value>My Bookmarks</value>
+  </data>
+	<data name="HowStepWiseWorks" xml:space="preserve">
+    <value>How StepWise Works</value>
+  </data>
+	<data name="DiscoverCareerPaths" xml:space="preserve">
+    <value>Discover Career Paths</value>
+  </data>
+	<data name="DiscoverCareerPathsDesc" xml:space="preserve">
+    <value>Explore structured career journeys created by professionals and industry experts. Find paths that align with your goals and interests.</value>
+  </data>
+	<data name="TrackYourProgress" xml:space="preserve">
+    <value>Track Your Progress</value>
+  </data>
+	<data name="TrackYourProgressDesc" xml:space="preserve">
+    <value>Bookmark career paths that interest you and track your progress through each step. Stay organized and motivated on your professional journey.</value>
+  </data>
+	<data name="AchieveYourGoals" xml:space="preserve">
+    <value>Achieve Your Goals</value>
+  </data>
+	<data name="AchieveYourGoalsDesc" xml:space="preserve">
+    <value>Follow step-by-step guidance to reach your target profession. Complete milestones and celebrate your achievements along the way.</value>
+  </data>
+	<data name="CareerPaths" xml:space="preserve">
+    <value>Career Paths</value>
+  </data>
+	<data name="StructuredLearningJourneys" xml:space="preserve">
+    <value>Structured learning journeys</value>
+  </data>
+	<data name="Community" xml:space="preserve">
+    <value>Community</value>
+  </data>
+	<data name="LearnFromProfessionals" xml:space="preserve">
+    <value>Learn from professionals</value>
+  </data>
+	<data name="StepByStep" xml:space="preserve">
+    <value>Step-by-Step</value>
+  </data>
+	<data name="ClearActionableGuidance" xml:space="preserve">
+    <value>Clear, actionable guidance</value>
+  </data>
+	<data name="ProgressTracking" xml:space="preserve">
+    <value>Progress Tracking</value>
+  </data>
+	<data name="MonitorYourAdvancement" xml:space="preserve">
+    <value>Monitor your advancement</value>
+  </data>
+	<data name="ReadyToStart" xml:space="preserve">
+    <value>Ready to Start Your Journey?</value>
+  </data>
+	<data name="ReadyToStartDesc" xml:space="preserve">
+    <value>Join thousands of professionals who are using StepWise to advance their careers. Whether you're just starting out or looking to make a change, we're here to guide you.</value>
+  </data>
+	<data name="GetStarted" xml:space="preserve">
+    <value>Get Started</value>
+  </data>
+	<data name="ShareYourExpertise" xml:space="preserve">
+    <value>Share Your Expertise</value>
+  </data>
+	<data name="PopularCareerPaths" xml:space="preserve">
+    <value>Popular Career Paths</value>
+  </data>
+	<data name="SoftwareDeveloper" xml:space="preserve">
+    <value>Software Developer</value>
+  </data>
+	<data name="DataScientist" xml:space="preserve">
+    <value>Data Scientist</value>
+  </data>
+	<data name="ProductManager" xml:space="preserve">
+    <value>Product Manager</value>
+  </data>
+	<data name="Steps" xml:space="preserve">
+    <value>steps</value>
+  </data>
+	<data name="Following" xml:space="preserve">
+    <value>following</value>
+  </data>
+	<data name="ViewAllCareerPaths" xml:space="preserve">
+    <value>View All Career Paths</value>
+  </data>
+</root>

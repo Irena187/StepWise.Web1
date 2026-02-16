@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+	<data name="Title" xml:space="preserve">
+    <value>Политика за поверителност - Стъпка По Стъпка</value>
+  </data>
+	<data name="PrivacyTitle" xml:space="preserve">
+    <value>Политика за поверителност</value>
+  </data>
+	<data name="PrivacySubtitle" xml:space="preserve">
+    <value>Вашата поверителност е важна за нас. Научете как събираме, използваме и защитаваме вашата информация.</value>
+  </data>
+	<data name="InformationWeCollect" xml:space="preserve">
+    <value>Каква информация събираме</value>
+  </data>
+	<data name="InformationWeCollectDesc" xml:space="preserve">
+    <value>Събираме лична информация като вашето име, имейл адрес и данни за използване, за да подобрим вашето изживяване в Стъпка По Стъпка. Събираме само данни, които вие избирате да предоставите.</value>
+  </data>
+	<data name="HowWeUseYourData" xml:space="preserve">
+    <value>Как използваме вашите данни</value>
+  </data>
+	<data name="HowWeUseYourDataDesc" xml:space="preserve">
+    <value>Вашите данни се използват за персонализиране на обучителния ви път, проследяване на напредъка и свързване с подходящо кариерно съдържание. Ние не продаваме вашите данни.</value>
+  </data>
+	<data name="Security" xml:space="preserve">
+    <value>Сигурност</value>
+  </data>
+	<data name="SecurityDesc" xml:space="preserve">
+    <value>Използваме модерни методи за криптиране и протоколи за сигурност, за да защитим вашите данни. Платформата ни е създадена с поверителността на потребителите като основен принцип.</value>
+  </data>
+	<data name="YourControls" xml:space="preserve">
+    <value>Вашият контрол</value>
+  </data>
+	<data name="YourControlsDesc" xml:space="preserve">
+    <value>Можете да актуализирате или изтриете личната си информация по всяко време чрез настройките на профила си. Ние уважаваме вашите избори и предпочитания.</value>
+  </data>
+</root>
