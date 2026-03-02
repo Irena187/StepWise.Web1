@@ -23,21 +23,27 @@ namespace StepWise.Services.Core.Admin
         // Returns a list of users for the admin panel, excluding the current admin
         public async Task<IEnumerable<UserManagementIndexViewModel>> GetUserManagementBoardDataAsync(string userId)
         {
-            IEnumerable<UserManagementIndexViewModel> users = await this
-                .userManager
-                .Users
+            // 1️⃣ Get all users first, excluding the current admin and deleted users
+            var users = await this.userManager.Users
                 .Where(u => u.Id.ToString().ToLower() != userId.ToLower() && !u.IsDeleted)
-                .Select(u => new UserManagementIndexViewModel
-                {
-                    Id = u.Id.ToString(),
-                    Email = u.Email,
-                    Roles = this.userManager.GetRolesAsync(u)
-                        .GetAwaiter()
-                        .GetResult() 
-                })
-                .ToArrayAsync();
+                .ToListAsync(); // materialize here
 
-            return users;
+            var userViewModels = new List<UserManagementIndexViewModel>();
+
+            // 2️⃣ Fetch roles for each user sequentially
+            foreach (var user in users)
+            {
+                var roles = await this.userManager.GetRolesAsync(user); // async per user
+
+                userViewModels.Add(new UserManagementIndexViewModel
+                {
+                    Id = user.Id.ToString(),
+                    Email = user.Email,
+                    Roles = roles.ToList()
+                });
+            }
+
+            return userViewModels;
         }
 
         // Assigns a role to a user if they don’t already have it
