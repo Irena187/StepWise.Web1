@@ -62,8 +62,16 @@
 
                     <!-- Language Switcher -->
                     <div class="d-flex align-items-center me-3">
-                        <form asp-controller="Home" asp-action="SetLanguage" method="post" class="language-switcher">
-                            <input type="hidden" name="returnUrl" value="@Context.Request.Path" />
+                        <form asp-area=""
+                              asp-controller="Home"
+                              asp-action="SetLanguage"
+                              method="post"
+                              class="language-switcher">
+
+                            <input type="hidden"
+                                   name="returnUrl"
+                                   value="@Context.Request.Path@Context.Request.QueryString" />
+
                             @if (currentCulture == "en")
                             {
                                 <button type="submit" name="culture" value="bg" class="btn btn-sm btn-outline-primary">
