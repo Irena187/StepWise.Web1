@@ -71,7 +71,7 @@
                                             <div class="col-1 text-center">
                                                 <input type="checkbox"
                                                        class="form-check-input"
-                                                @(step.IsCompleted ? "checked" : "")
+                                                       @(step.IsCompleted ? "checked" : "")
                                                        onchange="toggleStepCompletionCheckbox('@step.Id', this.checked)" />
                                             </div>
                                         }
@@ -167,12 +167,20 @@
             <!-- Action Buttons -->
             <div class="d-flex justify-content-between">
 
-                <a asp-controller="CareerPath"
-                   asp-action="Index"
-                   class="btn btn-secondary">
-                    <i class="fas fa-arrow-left me-1"></i>
-                    @Localizer["Back"]
-                </a>
+                <div class="d-flex gap-2">
+                    <a asp-controller="CareerPath"
+                       asp-action="Index"
+                       class="btn btn-secondary">
+                        <i class="fas fa-arrow-left me-1"></i>
+                        @Localizer["Back"]
+                    </a>
+
+                    <!-- Share Button -->
+                    <button class="btn btn-outline-secondary" onclick="shareCareerPath()" id="shareBtn">
+                        <i class="fas fa-link me-1"></i>
+                        @Localizer["Share"]
+                    </button>
+                </div>
 
                 @if (User.Identity?.IsAuthenticated == true && User.IsInRole("Creator"))
                 {
@@ -238,7 +246,26 @@
     </div>
 </div>
 
+<!-- Share Toast -->
+<div class="position-fixed bottom-0 end-0 p-3" style="z-index: 9999">
+    <div id="shareToast" class="toast align-items-center text-bg-success border-0" role="alert">
+        <div class="d-flex">
+            <div class="toast-body">
+                <i class="fas fa-check-circle me-1"></i> Link copied to clipboard!
+            </div>
+            <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"></button>
+        </div>
+    </div>
+</div>
+
 <script>
+    function shareCareerPath() {
+        navigator.clipboard.writeText(window.location.href).then(function () {
+            var toast = new bootstrap.Toast(document.getElementById('shareToast'));
+            toast.show();
+        });
+    }
+
     function toggleStepCompletionCheckbox(stepId, isComplete) {
         const token = document.querySelector('input[name="__RequestVerificationToken"]')?.value;
 
